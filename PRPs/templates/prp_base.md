@@ -35,10 +35,10 @@ Template optimized for AI agents to implement features with sufficient context a
 - url: [Official API docs URL]
   why: [Specific sections/methods you'll need]
   
-- file: [path/to/example.py]
+- file: [path/to/example.ts]
   why: [Pattern to follow, gotchas to avoid]
   
-- doc: [Library documentation URL] 
+- doc: [Library documentation source or URL] 
   section: [Specific section about common pitfalls]
   critical: [Key insight that prevents common errors]
 
@@ -131,10 +131,18 @@ DATABASE:
 
 ### Level 1: Syntax & Style
 ```bash
-# Run these FIRST - fix any errors before proceeding
-swiftlint analyze src --fix --format # Auto-fix what's possible
+# Run this FIRST - fix any errors before proceeding
+npm --prefix backend run lint
 
-# Expected: No errors. If errors, READ the error and fix.
+# Expected: No errors. If errors, run the following command
+npm --prefix backend run format
+
+# Run this SECOND - fix any errors before proceeding
+npm --prefix frontend run lint
+
+# Expected: No errors. If errors, run the following command
+npm --prefix frontend run format
+
 ```
 
 ### Level 2: Unit Tests each new feature/file/function use existing test patterns
@@ -160,14 +168,10 @@ struct ExamplesTests {
 
 ```bash
 # Run and iterate until passing:
-xcodebuild \
-  -project MyAwesomeApp.xcodeproj \
-  -scheme MyAwesomeApp \
-  -sdk iphonesimulator \
-  -destination 'platform=iOS Simulator,name=iPhone 12,OS=14.3' \
-  test
-  
-  # If failing: Read error, understand root cause, fix code, re-run (never mock to pass)
+npm --prefix backend run test
+npm --prefix frontend run test
+
+# If failing: Read error, understand root cause, fix code, re-run (never mock or delete tests to pass)
 ```
 
 ## Final validation Checklist

@@ -92,3 +92,19 @@ coverage/
 
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test
+
+# SvelteKit
+.svelte-kit/
+frontend/.svelte-kit/
+frontend/build/
+frontend/dist/
+frontend/.adapter-node/
+frontend/.adapter-static/
+
+# Svelte
+*.svelte.d.ts
+
+# Playwright
+frontend/test-results/
+frontend/playwright-report/
+frontend/playwright/.cache/
